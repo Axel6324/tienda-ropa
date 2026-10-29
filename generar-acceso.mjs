@@ -1,0 +1,10 @@
+import { randomBytes,pbkdf2Sync } from 'node:crypto';
+const password=randomBytes(18).toString('base64url');
+const salt=randomBytes(32).toString('hex');
+const config={username:'tienda.admin',salt,passwordHash:pbkdf2Sync(password,Buffer.from(salt,'hex'),100000,32,'sha256').toString('hex'),iterations:100000,storeId:'atelier-cloudflare-store'};
+console.log('USUARIO: '+config.username);
+console.log('CONTRASEÑA: '+password);
+console.log('\nGuarda esos datos. En Cloudflare añade un secreto de ejecución llamado SHOP_AUTH.');
+console.log('Copia como valor únicamente esta línea JSON:');
+console.log(JSON.stringify(config));
+console.log('\nNo subas este resultado a GitHub. No se guardó ningún archivo con las credenciales.');

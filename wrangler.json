@@ -1,0 +1,18 @@
+{
+  "$schema": "https://unpkg.com/wrangler@4.92.0/config-schema.json",
+  "name": "tienda-ropa",
+  "main": "index.js",
+  "compatibility_date": "2026-05-15",
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": {
+    "enabled": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "atelier-ventas-db",
+      "database_id": "0e3c3263-7192-4d40-8490-ed55b83e9564"
+    }
+  ]
+}

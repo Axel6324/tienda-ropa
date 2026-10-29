@@ -1,0 +1,17 @@
+{
+  "name": "tienda-ropa",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "node --check index.js",
+    "test": "node verificar.mjs",
+    "deploy": "npx --yes wrangler@4.92.0 deploy",
+    "cf:publish": "npm run deploy",
+    "db:init": "npx --yes wrangler@4.92.0 d1 execute DB --remote --file=database.sql",
+    "access:generate": "node generar-acceso.mjs"
+  }
+}
