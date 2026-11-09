@@ -1,6 +1,23 @@
-# Tienda de ropa · Repositorio nuevo
+# Imperio de Lobos · Tienda de ropa
 
-Esta es una versión compacta de la tienda para publicar en Cloudflare Workers. Todo está en la raíz: no necesita la carpeta `scripts`, una carpeta `dist` ni un paso de compilación del proyecto anterior. `index.js` contiene la aplicación completa, la pantalla de acceso, la API y la autenticación.
+
+## Logo y modo oscuro
+
+La página utiliza el logo original del lobo, con **Imperio de Lobos** debajo, tanto en el ingreso como en el panel. También se adapta al encabezado del celular.
+
+Para cambiar el tema, pulsa el botón **Modo oscuro / Modo claro** de la esquina superior derecha. En pantallas pequeñas aparece como un icono de luna o sol. La elección se guarda en ese navegador y se conserva al recargar o cerrar sesión. La primera vez utiliza la preferencia del dispositivo. Los recibos se imprimen con fondo blanco y texto negro.
+
+Para cambiar la imagen más adelante:
+
+1. Guarda la nueva imagen con el nombre **logo-imperio-lobos.jpg**. Se aceptan imágenes JPG, PNG o WebP; el contenido se detecta automáticamente.
+2. En GitHub abre **Add file → Upload files**, sube ese archivo a la raíz y confirma con **Commit changes**.
+3. Cloudflare reconstruye y publica automáticamente. El script `preparar-marca.mjs` incorpora la imagen en la página para que el logo se cargue desde la propia tienda.
+4. Espera que la implementación aparezca correcta y recarga la tienda. Si conservas la vista anterior, usa **Ctrl+F5** en Windows.
+
+Para actualizar otros archivos de la página, guarda los cambios en la rama `main` del repositorio. La configuración de publicación sigue siendo **Build: `npm run build`**, **Deploy: `npm run deploy`** y el Worker `tienda-ropa`. Los cambios de apariencia no requieren volver a crear las tablas ni generar otra contraseña.
+
+
+Esta es una versión compacta de la tienda para publicar en Cloudflare Workers. Los archivos necesarios están en la raíz. El paso de compilación incorpora el logo y verifica la sintaxis de la aplicación. `index.js` contiene la aplicación completa, la pantalla de acceso, la API y la autenticación.
 
 La base D1 `atelier-ventas-db` que ya creaste está declarada en `wrangler.json`. Su Database ID es `0e3c3263-7192-4d40-8490-ed55b83e9564`. Ese identificador no es una contraseña. No se ha ejecutado ninguna operación sobre esa base al preparar este ZIP. La tienda original de ChatGPT sigue intacta.
 
@@ -12,6 +29,8 @@ Estos archivos deben aparecer directamente en la página principal del repositor
 
 ```text
 index.js
+logo-imperio-lobos.jpg
+preparar-marca.mjs
 package.json
 wrangler.json
 database.sql
@@ -34,7 +53,7 @@ En Cloudflare entra en **Cómputo → Workers & Pages → Crear aplicación → 
 | Directorio raíz | vacío o `/` |
 | Variable de compilación | `NODE_VERSION` = `24` |
 
-El nombre debe coincidir con `name` en `wrangler.json`. `npm run build` comprueba directamente `index.js`; no busca `scripts/build.mjs`. El comando de despliegue publica el Worker y no ejecuta cambios SQL, por lo que no necesita permiso D1 Edit en el token de compilación para ejecutar migraciones.
+El nombre debe coincidir con `name` en `wrangler.json`. `npm run build` incorpora la imagen mediante `preparar-marca.mjs` y comprueba `index.js`; no utiliza `scripts/build.mjs`. El comando de despliegue publica el Worker y no ejecuta cambios SQL, por lo que no necesita permiso D1 Edit en el token de compilación para ejecutar migraciones.
 
 Cloudflare generará un enlace HTTPS terminado en `workers.dev`. La pantalla de acceso puede aparecer antes de terminar la configuración, pero el inicio de sesión no funcionará hasta completar los dos pasos siguientes.
 
@@ -90,3 +109,4 @@ Usa SQLite en memoria: comprueba el acceso, la protección de la API, la persist
 La tienda publicada no requiere tu computadora encendida ni una suscripción de ChatGPT. Su disponibilidad depende de Cloudflare y de los límites del plan elegido; el plan gratuito no implica disponibilidad ilimitada. Hay que verificar el acceso real en el plan seleccionado antes de usarla con datos importantes.
 
 Este ZIP no incluye contraseñas reales, datos de clientes ni credenciales de las cuentas de GitHub o Cloudflare. Para conservar una copia editable con el frontend y backend separados, guarda también el ZIP completo del proyecto que recibiste anteriormente.
+
