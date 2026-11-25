@@ -1,6 +1,14 @@
 # Imperio de Lobos · Tienda de ropa
 
 
+## Registrar Bolo y su sabor
+
+En **Nueva venta → Productos de la compra**, selecciona **Bolo** en el tipo de producto. El campo **Sabor** es texto libre y opcional: puedes escribir el sabor correspondiente en cada compra. Se conserva con la venta y aparece en el recibo y en la exportación CSV. También puedes buscar ventas por ese sabor.
+
+Los productos de ropa, calzado y accesorios mantienen sus campos de talla y color. Una misma venta puede incluir productos de varios tipos.
+
+
+
 ## Logo y modo oscuro
 
 La página utiliza el logo original del lobo, con **Imperio de Lobos** debajo, tanto en el ingreso como en el panel. También se adapta al encabezado del celular.
@@ -109,4 +117,5 @@ Usa SQLite en memoria: comprueba el acceso, la protección de la API, la persist
 La tienda publicada no requiere tu computadora encendida ni una suscripción de ChatGPT. Su disponibilidad depende de Cloudflare y de los límites del plan elegido; el plan gratuito no implica disponibilidad ilimitada. Hay que verificar el acceso real en el plan seleccionado antes de usarla con datos importantes.
 
 Este ZIP no incluye contraseñas reales, datos de clientes ni credenciales de las cuentas de GitHub o Cloudflare. Para conservar una copia editable con el frontend y backend separados, guarda también el ZIP completo del proyecto que recibiste anteriormente.
+
 
